@@ -6,13 +6,29 @@
 
 :root {
   --surface-default: lightgray;
-  --sidebar-width: 18.25rem;
-  --header-height: 6.25rem;
+  --sidebar-width: 20rem; /* 320px */
+  --header-height: 9.375rem; /* 150px */
+
+  /* Prevent browser from synthesizing bold/italic if font files don't exist */
+  font-synthesis: none;
+  /* Webkit browsers - smooth font rendering */
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+
+  /* Firefox on macOS - smooth font rendering */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Prevent font color changes on highlight */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   display: flex;
   background-color: var(--surface-default);
+  font-family: 'Space Grotesk', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   min-width: 100vw;
   min-height: 100vh;
 }
@@ -20,14 +36,28 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   width: var(--sidebar-width);
-  padding: 2rem 1rem 2rem 2rem;
+  padding: 1rem 0.5rem 1rem 1rem;
 }
 
 .brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   background-color: white;
   height: var(--header-height);
+}
+
+.logo {
+  font-family: 'Bungee Shade', sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  font-style: normal;
+  line-height: 1;
+  text-align: center;
 }
 
 .new-features {
@@ -47,8 +77,8 @@ body {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 2rem 2rem 1rem;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 0.5rem;
   width: 100%;
 }
 
@@ -61,7 +91,6 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  /* background-color: white; */
 }
 
 .tabs {
@@ -75,6 +104,7 @@ body {
   background-color: white;
   border: none;
   cursor: pointer;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
 }
 

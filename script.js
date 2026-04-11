@@ -1,36 +1,37 @@
-let activeTab = 'home';
+// Tab content data
+const TAB_CONTENT = {
+  home: 'Welcome to the home page',
+  about: 'About me',
+  projects: 'My cool projects',
+  contact: 'Contact me',
+};
 
+// DOM elements
 const tabs = document.querySelectorAll('.tab');
 const panel = document.querySelector('.tab-panel');
 
-const updatePanel = () => {
-  switch (activeTab) {
-    case 'home':
-      panel.textContent = 'Welcome to the home page';
-      break;
-    case 'about':
-      panel.textContent = 'About me';
-      break;
-    case 'projects':
-      panel.textContent = 'My cool projects';
-      break;
-    case 'contact':
-      panel.textContent = 'Contact me';
-      break;
-    default:
-      panel.textContent = 'Uknown tab';
-  }
+// State
+let activeTab = 'home';
+
+// Update panel content and active states
+const updatePanel = (tabName) => {
+  activeTab = tabName;
+  panel.textContent = TAB_CONTENT[tabName] ?? 'Unknown tab';
 
   tabs.forEach((tab) => {
     tab.classList.toggle('active', tab.dataset.tab === activeTab);
   });
+};
 
+// Initialize event listeners
+const initTabs = () => {
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      activeTab = tab.dataset.tab;
-      updatePanel();
+      updatePanel(tab.dataset.tab);
     });
   });
 };
 
-updatePanel();
+// Initialize on page load
+initTabs();
+updatePanel(activeTab);
