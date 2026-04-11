@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --surface-default: lightgray;
+  --sidebar-width: 18.25rem;
+  --header-height: 6.25rem;
+}
+
+body {
+  display: flex;
+  background-color: var(--surface-default);
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: var(--sidebar-width);
+  padding: 2rem 1rem 2rem 2rem;
+}
+
+.brand {
+  background-color: white;
+  height: var(--header-height);
+}
+
+.new-features {
+  flex-grow: 1;
+  background-color: white;
+}
+
+.fake-ads {
+  flex-grow: 1;
+  background-color: white;
+}
+
+.quick-links {
+  background-color: white;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 2rem 2rem 1rem;
+  width: 100%;
+}
+
+.header {
+  background-color: white;
+  height: var(--header-height);
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* background-color: white; */
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tab {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.tab.active {
+  background: black;
+  color: lime;
+  border: 1px solid lime;
+}
+
+.tab-panel {
+  flex-grow: 1;
+  display: flex;
+  background-color: white;
+  padding: 1.5rem;
+}
