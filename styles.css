@@ -344,10 +344,32 @@ body {
   width: 100%;
 }
 
-.header {
+.interactive-header {
+  position: relative;
   background-color: var(--surface-primary);
   border-radius: 0.5rem;
   height: var(--header-height);
+  overflow: hidden;
+  /* cursor: none; */
+}
+
+.interactive-trail {
+  /* position: fixed; */
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 0%;
+  pointer-events: none;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  animation: fadeOut 0.8s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
 }
 
 /* ~~~~~~~~~~~~~~~~~~~ Panel Styles ~~~~~~~~~~~~~~~~~~~ */
