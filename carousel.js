@@ -5,18 +5,24 @@ const ADS_CONTENT = [
     description: 'See what the universe is trying to show you today!',
     cta: 'REVEAL YOUR FUTURE',
     svg: 'assets/CrystalBall.svg',
+    template: 'template-1',
+    mode: 'light',
   },
   {
     title: "You've Got Mail!",
     description: 'Get Your Mail Anytime, Anywhere.',
     cta: 'View Inbox',
     svg: 'assets/Envelope.svg',
+    template: 'template-2',
+    mode: 'light',
   },
   {
     title: 'PLAY FOR FREE',
     description: 'Fast rounds. Easy State. No waiting around.',
     cta: 'START GAME',
     svg: 'assets/Gaming.svg',
+    template: 'template-2',
+    mode: 'light',
   },
 ];
 
