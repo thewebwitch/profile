@@ -473,7 +473,7 @@ body {
 }
 
 /* ~~~~~~~~~~~~~~~~~~~ Worm ~~~~~~~~~~~~~~~~~~~ */
-.worm-field {
+/* .worm-field {
   position: absolute;
   top: 0;
   left: 0;
@@ -508,4 +508,4 @@ body {
   100% {
     transform: translate(0, 0);
   }
-}
+} */
