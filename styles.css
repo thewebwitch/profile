@@ -154,28 +154,46 @@ body {
   gap: 0.5rem;
 }
 
-.ad-header {
+.ad-title {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   color: var(--text-default);
-}
-
-.ad-svg {
-  width: 1.25rem; /* 20px */
-  height: 1.25rem; /* 20px */
-  background-color: var(--text-default);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-}
-
-.ad-title {
   font-size: 1rem;
   font-weight: 600;
   font-style: normal;
   letter-spacing: 0;
   margin: 0;
   text-align: center;
+  width: 100%;
+}
+
+.ad-title.top-svg {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ad-title.side-svg {
+  justify-content: space-between;
+}
+
+.ad-title.top-svg::before,
+.ad-title.side-svg::after,
+.ad-title.side-svg::before {
+  content: '';
+  display: inline-block;
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  background-color: var(--text-default);
+  mask-image: var(--mask-image);
+  -webkit-mask-image: var(--mask-image);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+.ad-title.top-svg::before {
+  width: 2.25rem; /* 36px */
+  height: 2.25rem; /* 36px */
 }
 
 .ad-description {

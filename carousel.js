@@ -7,18 +7,21 @@ const LIGHT_ADS_CONTENT = [
     description: 'See what the universe is trying to show you today!',
     cta: 'REVEAL YOUR FUTURE',
     svg: 'assets/CrystalBall.svg',
+    svgPosition: 'sides',
   },
   {
     title: "You've Got Mail!",
     description: 'Get Your Mail Anytime, Anywhere.',
     cta: 'View Inbox',
     svg: 'assets/Envelope.svg',
+    svgPosition: 'top',
   },
   {
     title: 'PLAY FOR FREE',
     description: 'Fast rounds. Easy State. No waiting around.',
     cta: 'START GAME',
     svg: 'assets/Gaming.svg',
+    svgPosition: 'top',
   },
 ];
 
@@ -28,12 +31,14 @@ const DARK_ADS_CONTENT = [
     description: 'No questions asked. Just flavor.',
     cta: 'TRY TODAY',
     svg: 'assets/Cow.svg',
+    svgPosition: 'top',
   },
   {
     title: 'SYSTEM NOTICE',
     description: 'This session has been flagged for unusual viewing patterns',
     cta: 'Read More',
     svg: 'assets/ExclamationTriangle.svg',
+    svgPosition: 'sides',
   },
   {
     title: "YOU'RE BEING RECORDED",
@@ -68,13 +73,25 @@ export const initCarousel = () => {
     descriptionElement.textContent = description;
     ctaButton.textContent = cta;
 
-    adSvgElements.forEach((element) => {
-      if (svg) {
-        element.style.maskImage = `url(${svg})`;
-      } else {
-        element.style.maskImage = '';
-      }
-    });
+    if (!svg) {
+      titleElement.style.removeProperty('--mask-image');
+      titleElement.classList.remove('side-svg');
+      titleElement.classList.remove('top-svg');
+      return;
+    }
+
+    if (ads[currentIndex].svgPosition === 'sides') {
+      titleElement.classList.remove('top-svg');
+      titleElement.classList.add('side-svg');
+      titleElement.style.setProperty('--mask-image', `url(${svg})`);
+      return;
+    }
+
+    if (ads[currentIndex].svgPosition === 'top') {
+      titleElement.classList.remove('side-svg');
+      titleElement.classList.add('top-svg');
+      titleElement.style.setProperty('--mask-image', `url(${svg})`);
+    }
   };
 
   const goToNextAd = () => {
