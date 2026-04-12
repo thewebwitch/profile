@@ -46,6 +46,7 @@ const getAdsForTheme = (theme) =>
   theme === 'light' ? LIGHT_ADS_CONTENT : DARK_ADS_CONTENT;
 
 export const initCarousel = () => {
+  const advertisementsSection = document.querySelector('.advertisements');
   const adContainer = document.querySelector('.advertisement');
   const titleElement = adContainer.querySelector('.ad-title');
   const descriptionElement = adContainer.querySelector('.ad-description');
@@ -111,6 +112,22 @@ export const initCarousel = () => {
   ctaButton.addEventListener('mouseleave', () =>
     ctaButton.classList.remove('pressed'),
   );
+
+  const pauseCarousel = () => {
+    if (carouselIntervalId !== null) {
+      clearInterval(carouselIntervalId);
+      carouselIntervalId = null;
+    }
+  };
+
+  const resumeCarousel = () => {
+    if (carouselIntervalId === null) {
+      carouselIntervalId = setInterval(goToNextAd, 5000);
+    }
+  };
+
+  advertisementsSection.addEventListener('mouseenter', pauseCarousel);
+  advertisementsSection.addEventListener('mouseleave', resumeCarousel);
 
   updateAdContent();
   carouselIntervalId = setInterval(goToNextAd, 5000);
