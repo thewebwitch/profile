@@ -270,6 +270,10 @@ body {
   text-decoration: none;
 }
 
+.external-link-icon {
+  margin-left: auto;
+}
+
 #resume-link::before,
 #linkedin-link::before,
 #github-link::before {
@@ -295,6 +299,21 @@ body {
 #resume-link::before {
   mask-image: url('assets/DownloadAlt.svg');
   -webkit-mask-image: url('assets/DownloadAlt.svg');
+}
+
+#resume-link::after,
+#linkedin-link::after,
+#github-link::after {
+  content: '';
+  display: inline-block;
+  background-color: var(--text-default);
+  margin-left: auto;
+  width: 1.125rem; /* 20px */
+  height: 1.125rem; /* 20px */
+  mask-image: url('assets/ExternalLink.svg');
+  -webkit-mask-image: url('assets/ExternalLink.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~ Main Styles ~~~~~~~~~~~~~~~~~~~ */
@@ -328,13 +347,34 @@ body {
 }
 
 .tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   background-color: var(--surface-disabled);
   border: none;
   border-radius: 0.5rem 0.5rem 0 0;
   color: var(--text-disabled);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.125rem; /* 18px */
   padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.tab::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  background-color: var(--text-disabled);
+  mask-image: var(--tab-mask-image);
+  -webkit-mask-image: var(--tab-mask-image);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+.tab.active::before {
+  background-color: var(--text-default);
 }
 
 .tab.active {

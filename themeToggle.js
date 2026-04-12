@@ -13,6 +13,10 @@ export const initTheme = () => {
 
 export const toggleTheme = () => {
   const currentTheme = document.body.getAttribute('data-theme');
+
+  // if (currentTheme === 'dark') {
+  //   return;
+  // }
   const newTheme = currentTheme === 'light' ? 'dark' : 'light';
   document.body.setAttribute('data-theme', newTheme);
 
