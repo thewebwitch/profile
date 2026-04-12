@@ -6,8 +6,13 @@
 
 :root {
   --text-default: black;
+  --text-disabled: #a0a0a0;
   --surface-primary: white;
-  --surface-subtle: lightgray;
+  --surface-subtle: #f6f6f6;
+  --surface-disabled: #e0e0e0;
+  --surface-purple: #c2a0ff;
+  --surface-pink: #ffaada;
+  --surface-green: #3af0ac;
   --sidebar-width: 18.75rem; /* 300px */
   --header-height: 9.375rem; /* 150px */
 
@@ -25,9 +30,16 @@
 }
 
 [data-theme='dark'] {
-  --text-default: white;
+  --text-default: #2be02b;
+  --text-disabled: #323232;
+
   --surface-primary: #1e1e1e;
   --surface-subtle: #121212;
+  --surface-disabled: #1c1c1c;
+
+  --surface-purple: #1e1e1e;
+  --surface-pink: #1e1e1e;
+  --surface-green: #1e1e1e;
 }
 
 body {
@@ -59,7 +71,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--surface-primary);
+  background-color: var(--surface-purple);
+  border-radius: 0.5rem;
   height: var(--header-height);
 }
 
@@ -73,19 +86,20 @@ body {
 }
 
 .new-features {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--surface-primary);
+  background-color: var(--surface-pink);
+  border-radius: 0.5rem;
 }
 
-.section-title {
+.new-features-title {
   font-size: 1rem;
   font-weight: 600;
   font-style: normal;
   letter-spacing: 0;
+  padding: 0.5rem 1rem;
   margin: 0;
   text-align: center;
 }
@@ -111,10 +125,11 @@ body {
 .theme-toggle::before,
 .theme-toggle::after {
   content: '';
-  width: 20px;
-  height: 20px;
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
   background-color: var(--text-default);
   mask-image: url('assets/SparklesLeft.svg');
+  -webkit-mask-image: url('assets/SparklesLeft.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
 }
@@ -127,7 +142,9 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   background-color: var(--surface-primary);
+  border-radius: 0.5rem;
   padding: 1rem;
+  max-height: 18rem;
 }
 
 .advertisement {
@@ -145,8 +162,8 @@ body {
 }
 
 .ad-svg {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
   background-color: var(--text-default);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -176,11 +193,17 @@ body {
 }
 
 .ad-cta {
+  background-color: transparent;
+  border: 2px solid var(--text-default);
+  border-radius: 0.5rem;
+  box-shadow: -0.25rem 0.25rem var(--text-default);
+  color: var(--text-default);
+  cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
   font-style: normal;
   letter-spacing: 0;
-  margin: 0;
+  margin: 0 0 0.25rem 0.25rem;
   padding: 0.5rem 1rem;
   text-align: center;
 }
@@ -199,8 +222,8 @@ body {
 }
 
 .ads-nav.prev {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
   background-color: var(--text-default);
   mask-size: contain;
   mask-image: url('assets/ArrowAltCircleLeft.svg');
@@ -208,8 +231,8 @@ body {
 }
 
 .ads-nav.next {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
   background-color: var(--text-default);
   mask-size: contain;
   mask-image: url('assets/ArrowAltCircleRight.svg');
@@ -217,7 +240,56 @@ body {
 }
 
 .quick-links {
-  background-color: var(--surface-primary);
+  background-color: var(--surface-green);
+  border-radius: 0.5rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  list-style: none;
+  width: 100%;
+}
+
+.link a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-default);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  text-decoration: none;
+}
+
+#resume-link::before,
+#linkedin-link::before,
+#github-link::before {
+  content: '';
+  display: inline-block;
+  background-color: var(--text-default);
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+#github-link::before {
+  mask-image: url('assets/Github.svg');
+  -webkit-mask-image: url('assets/Github.svg');
+}
+
+#linkedin-link::before {
+  mask-image: url('assets/LinkedIn.svg');
+  -webkit-mask-image: url('assets/LinkedIn.svg');
+}
+
+#resume-link::before {
+  mask-image: url('assets/DownloadAlt.svg');
+  -webkit-mask-image: url('assets/DownloadAlt.svg');
 }
 
 /* ~~~~~~~~~~~~~~~~~~~ Main Styles ~~~~~~~~~~~~~~~~~~~ */
@@ -232,6 +304,7 @@ body {
 
 .header {
   background-color: var(--surface-primary);
+  border-radius: 0.5rem;
   height: var(--header-height);
 }
 
@@ -250,23 +323,24 @@ body {
 }
 
 .tab {
-  background-color: var(--surface-primary);
+  background-color: var(--surface-disabled);
   border: none;
-  color: var(--text-default);
+  border-radius: 0.5rem 0.5rem 0 0;
+  color: var(--text-disabled);
   cursor: pointer;
   font-size: 1rem;
   padding: 0.5rem 1rem;
 }
 
 .tab.active {
-  background: black;
-  color: lime;
-  border: 1px solid lime;
+  background: var(--surface-primary);
+  color: var(--text-default);
 }
 
 .tab-panel {
   flex-grow: 1;
   display: flex;
   background-color: var(--surface-primary);
+  border-radius: 0.5rem;
   padding: 1.5rem;
 }
