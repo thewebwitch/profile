@@ -208,6 +208,11 @@ body {
   text-align: center;
 }
 
+.ad-cta.pressed {
+  box-shadow: none;
+  transform: translate(-0.25rem, 0.25rem);
+}
+
 .ads-footer {
   display: flex;
   justify-content: space-between;

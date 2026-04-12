@@ -92,3 +92,19 @@ const updateAdContent = (index) => {
     }
   });
 };
+
+const ctaMouseDownHandler = (event) => {
+  event.currentTarget.classList.add('pressed');
+};
+
+const ctaMouseUpHandler = (event) => {
+  event.currentTarget.classList.remove('pressed');
+};
+
+// Add event listeners for CTA button press effect
+document
+  .querySelector('.ad-cta')
+  .addEventListener('mousedown', ctaMouseDownHandler);
+document
+  .querySelector('.ad-cta')
+  .addEventListener('mouseup', ctaMouseUpHandler);
