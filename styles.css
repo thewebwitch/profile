@@ -144,6 +144,14 @@ body {
   color: var(--text-default);
 }
 
+.ad-svg {
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-default);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
 .ad-title {
   font-size: 1rem;
   font-weight: 600;
@@ -244,6 +252,7 @@ body {
 .tab {
   background-color: var(--surface-primary);
   border: none;
+  color: var(--text-default);
   cursor: pointer;
   font-size: 1rem;
   padding: 0.5rem 1rem;

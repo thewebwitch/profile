@@ -51,7 +51,9 @@ const updateAdContent = (index) => {
   ad.querySelector('.ad-title').textContent = title;
   ad.querySelector('.ad-description').textContent = description;
   ad.querySelector('.ad-cta').textContent = cta;
-  ad.querySelectorAll('.ad-svg').forEach((svg, i) => {
-    svg.src = ADS_CONTENT[index].svg;
+
+  const adSvgElements = ad.querySelectorAll('.ad-svg');
+  adSvgElements.forEach((element) => {
+    element.style.maskImage = `url(${ADS_CONTENT[index].svg})`;
   });
 };
