@@ -1,5 +1,7 @@
 import { getCurrentTheme } from './utils.js';
 
+const AD_CHANGE_INTERVAL = 5000; // 5 seconds
+
 // Tab content data
 const LIGHT_ADS_CONTENT = [
   {
@@ -139,7 +141,7 @@ export const initCarousel = () => {
 
   const resumeCarousel = () => {
     if (carouselIntervalId === null) {
-      carouselIntervalId = setInterval(goToNextAd, 5000);
+      carouselIntervalId = setInterval(goToNextAd, AD_CHANGE_INTERVAL);
     }
   };
 
@@ -147,7 +149,7 @@ export const initCarousel = () => {
   advertisementsSection.addEventListener('mouseleave', resumeCarousel);
 
   updateAdContent();
-  carouselIntervalId = setInterval(goToNextAd, 5000);
+  carouselIntervalId = setInterval(goToNextAd, AD_CHANGE_INTERVAL);
 
   const observer = new MutationObserver(handleThemeChange);
   observer.observe(document.body, {
