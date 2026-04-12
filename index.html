@@ -72,7 +72,7 @@
     </aside>
     <!-- Main Content -->
     <main class="main-wrapper">
-      <header class="interactive-header">Something interactive</header>
+      <header class="interactive-header"></header>
       <section class="main">
         <nav class="tabs" aria-label="main tabs">
           <button class="tab" data-tab="home" type="button">Home</button>
@@ -87,8 +87,16 @@
         <!-- HOME TEMPLATE -->
         <template id="tab-home">
           <div class="tab-content home-content">
-            <h2>Welcome to Web Witch</h2>
-            <p>Your interactive web development portfolio</p>
+            <div class="avatar-container">
+              <picture>
+                <source srcset="assets/myAvatar.webp" type="image/webp" />
+                <img src="assets/myAvatar.png" alt="Avatar" class="avatar" />
+              </picture>
+            </div>
+            <div class="home-text">
+              <h2>Welcome to Web Witch</h2>
+              <p>Your interactive web development portfolio</p>
+            </div>
           </div>
         </template>
         <!-- ABOUT TEMPLATE -->
@@ -133,22 +141,19 @@
           <article id="contact-tab" class="tab-content">
             <form name="contact" method="POST" data-netlify="true">
               <p>
-                <label>Your Name: <input type="text" name="name" /></label>
+                <label class="contact-form-label"
+                  >Your Name: <input type="text" name="name"
+                /></label>
               </p>
               <p>
-                <label>Your Email: <input type="email" name="email" /></label>
+                <label class="contact-form-label"
+                  >Your Email: <input type="email" name="email"
+                /></label>
               </p>
               <p>
-                <label>
-                  Your Role:
-                  <select name="role[]" multiple>
-                    <option value="leader">Leader</option>
-                    <option value="follower">Follower</option>
-                  </select>
+                <label class="contact-form-label"
+                  >Message: <textarea name="message"></textarea>
                 </label>
-              </p>
-              <p>
-                <label>Message: <textarea name="message"></textarea></label>
               </p>
               <p>
                 <button type="submit">Send</button>

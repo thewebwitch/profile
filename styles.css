@@ -13,6 +13,7 @@
   --surface-purple: #c2a0ff;
   --surface-pink: #ffaada;
   --surface-green: #3af0ac;
+  --avatar-background: #a0d1ff;
   --sidebar-width: 18.75rem; /* 300px */
   --header-height: 9.375rem; /* 150px */
 
@@ -40,6 +41,7 @@
   --surface-purple: #1e1e1e;
   --surface-pink: #1e1e1e;
   --surface-green: #1e1e1e;
+  --avatar-background: #2be02b;
 }
 
 body {
@@ -350,11 +352,10 @@ body {
   border-radius: 0.5rem;
   height: var(--header-height);
   overflow: hidden;
-  /* cursor: none; */
+  cursor: none;
 }
 
 .interactive-trail {
-  /* position: fixed; */
   position: absolute;
   width: 6px;
   height: 6px;
@@ -428,4 +429,49 @@ body {
   background-color: var(--surface-primary);
   border-radius: 0.5rem;
   padding: 1.5rem;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ Home Tab Styles ~~~~~~~~~~~~~~~~~~~ */
+.home-content {
+  display: flex;
+}
+
+.avatar-container {
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: block;
+  background-color: var(--avatar-background);
+  border: 2px solid var(--avatar-background);
+  border-radius: 0.5rem;
+  width: 18.75rem; /* 300px */
+  height: 22.5rem; /* 360px */
+}
+
+.avatar {
+  display: block;
+  border-radius: 0.5rem;
+  image-rendering: auto;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+[data-theme='dark'] .avatar {
+  filter: hue-rotate(45deg);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ About Tab Styles ~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~ Projects Tab Styles ~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~ Contact Tab Styles ~~~~~~~~~~~~~~~~~~~ */
+.contact-form-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  margin-bottom: 0.25rem;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ Worm ~~~~~~~~~~~~~~~~~~~ */
+.worm-field {
 }
