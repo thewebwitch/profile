@@ -190,6 +190,24 @@ body {
   cursor: pointer;
 }
 
+.ads-nav.prev {
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-default);
+  mask-size: contain;
+  mask-image: url('assets/ArrowAltCircleLeft.svg');
+  mask-repeat: no-repeat;
+}
+
+.ads-nav.next {
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-default);
+  mask-size: contain;
+  mask-image: url('assets/ArrowAltCircleRight.svg');
+  mask-repeat: no-repeat;
+}
+
 .quick-links {
   background-color: var(--surface-primary);
 }
