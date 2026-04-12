@@ -163,6 +163,23 @@
         </template>
       </section>
     </main>
+    <div class="worm-field">
+      <div class="worm"></div>
+      <svg style="display: none">
+        <filter id="displacementFilter">
+          <feImage
+            href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjkuMSwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/TGe4hAAAACXBIWXMAAA9hAAAPYQGoP6dpAAABTUlEQVR4nO3dQWrDQBAAwbGUp4SQ/78m+C+ycsjFBBOwZUMTqi4LWi0Mavas0z6zb8vMts5cfq23nr1kb50xw88My5AiSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSMzbkcOf5zk9a5D/5P08+6Nn3ZAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpAYQWIEiREkRpCYQ39p+/qYfVtnLsvM9Xrr2Z9768x2z/uv2HvmDAe+qRsSI0iMIDGCxAgSI0iMIDGCxAgSI0iMIDGCxAgSI0jMN6A3sMXKX8qnAAAAAElFTkSuQmCC"
+            preserveAspectRatio="none"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            scale="200"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
+    </div>
     <script type="module" src="script.js"></script>
   </body>
 </html>

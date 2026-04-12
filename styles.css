@@ -473,3 +473,38 @@ body {
 }
 
 /* ~~~~~~~~~~~~~~~~~~~ Worm ~~~~~~~~~~~~~~~~~~~ */
+.worm-field {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  /* width: 100vw; */
+  /* height: 100vh; */
+  border-radius: 50%;
+  pointer-events: none;
+  overflow: hidden;
+}
+[data-theme='dark'] .worm {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  filter: drop-shadow(-8px -10px 46px #0000005f);
+  backdrop-filter: blur(2px) url(#displacementFilter);
+  animation: pulseFade 5s ease-in-out infinite;
+}
+
+@keyframes pulseFade {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
