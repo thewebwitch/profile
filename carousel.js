@@ -1,3 +1,5 @@
+import { getCurrentTheme } from './utils.js';
+
 // Tab content data
 const LIGHT_ADS_CONTENT = [
   {
@@ -40,71 +42,82 @@ const DARK_ADS_CONTENT = [
   },
 ];
 
-const LENGTH = LIGHT_ADS_CONTENT.length;
+const getAdsForTheme = (theme) =>
+  theme === 'light' ? LIGHT_ADS_CONTENT : DARK_ADS_CONTENT;
 
 export const initCarousel = () => {
+  const adContainer = document.querySelector('.advertisement');
+  const titleElement = adContainer.querySelector('.ad-title');
+  const descriptionElement = adContainer.querySelector('.ad-description');
+  const ctaButton = adContainer.querySelector('.ad-cta');
+  const adSvgElements = adContainer.querySelectorAll('.ad-svg');
+  const prevButton = document.querySelector('.ads-nav.prev');
+  const nextButton = document.querySelector('.ads-nav.next');
+
+  let currentTheme = getCurrentTheme();
   let currentIndex = 0;
-  updateAdContent(currentIndex); // Initialize with the first ad
+  let carouselIntervalId = null;
 
-  const nextAd = () => {
-    currentIndex = (currentIndex + 1) % LENGTH;
-    updateAdContent(currentIndex);
+  const updateAdContent = () => {
+    const ads = getAdsForTheme(currentTheme);
+    currentIndex = currentIndex % ads.length;
+    const { title, description, cta, svg } = ads[currentIndex];
+
+    titleElement.textContent = title;
+    descriptionElement.textContent = description;
+    ctaButton.textContent = cta;
+
+    adSvgElements.forEach((element) => {
+      if (svg) {
+        element.style.maskImage = `url(${svg})`;
+      } else {
+        element.style.maskImage = '';
+      }
+    });
   };
 
-  const prevAd = () => {
-    currentIndex = (currentIndex - 1 + LENGTH) % LENGTH;
-    updateAdContent(currentIndex);
+  const goToNextAd = () => {
+    const ads = getAdsForTheme(currentTheme);
+    currentIndex = (currentIndex + 1) % ads.length;
+    updateAdContent();
   };
 
-  // Event listeners for navigation buttons
-  document.querySelector('.ads-nav.prev').addEventListener('click', prevAd);
-  document.querySelector('.ads-nav.next').addEventListener('click', nextAd);
+  const goToPrevAd = () => {
+    const ads = getAdsForTheme(currentTheme);
+    currentIndex = (currentIndex - 1 + ads.length) % ads.length;
+    updateAdContent();
+  };
 
-  // Set interval for auto-rotation every 5 seconds
-  setInterval(nextAd, 5000);
-};
-
-// Helper function to update ad content based on the current index
-const updateAdContent = (index) => {
-  const ad = document.querySelector('.advertisement');
-
-  let adData = LIGHT_ADS_CONTENT[index];
-
-  // check if light mode
-  const isLightMode =
-    document.documentElement.getAttribute('data-theme') === 'light';
-
-  if (!isLightMode) {
-    adData = DARK_ADS_CONTENT[index];
-  }
-
-  const { title, description, cta, svg } = adData;
-  ad.querySelector('.ad-title').textContent = title;
-  ad.querySelector('.ad-description').textContent = description;
-  ad.querySelector('.ad-cta').textContent = cta;
-
-  const adSvgElements = ad.querySelectorAll('.ad-svg');
-  adSvgElements.forEach((element) => {
-    if (svg) {
-      element.style.maskImage = `url(${svg})`;
-    } else {
-      element.style.maskImage = '';
+  const handleThemeChange = () => {
+    const newTheme = getCurrentTheme();
+    if (newTheme === currentTheme) {
+      return;
     }
+
+    currentTheme = newTheme;
+    currentIndex = currentIndex % getAdsForTheme(currentTheme).length;
+    updateAdContent();
+  };
+
+  prevButton.addEventListener('click', goToPrevAd);
+  nextButton.addEventListener('click', goToNextAd);
+
+  ctaButton.addEventListener('mousedown', () =>
+    ctaButton.classList.add('pressed'),
+  );
+  ctaButton.addEventListener('mouseup', () =>
+    ctaButton.classList.remove('pressed'),
+  );
+  ctaButton.addEventListener('mouseleave', () =>
+    ctaButton.classList.remove('pressed'),
+  );
+
+  updateAdContent();
+  carouselIntervalId = setInterval(goToNextAd, 5000);
+
+  const observer = new MutationObserver(handleThemeChange);
+  observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['data-theme'],
   });
 };
-
-const ctaMouseDownHandler = (event) => {
-  event.currentTarget.classList.add('pressed');
-};
-
-const ctaMouseUpHandler = (event) => {
-  event.currentTarget.classList.remove('pressed');
-};
-
-// Add event listeners for CTA button press effect
-document
-  .querySelector('.ad-cta')
-  .addEventListener('mousedown', ctaMouseDownHandler);
-document
-  .querySelector('.ad-cta')
-  .addEventListener('mouseup', ctaMouseUpHandler);
