@@ -1,13 +1,9 @@
 // Tab content data
 const TAB_CONTENT = [
-  { id: 'home', content: 'Welcome to the home page', svg: 'assets/Home.svg' },
-  { id: 'about', content: 'About me', svg: 'assets/User.svg' },
-  {
-    id: 'projects',
-    content: 'My cool projects',
-    svg: 'assets/PencilRuler.svg',
-  },
-  { id: 'contact', content: 'Contact me', svg: 'assets/Envelope.svg' },
+  { id: 'home', svg: 'assets/Home.svg' },
+  { id: 'about', svg: 'assets/User.svg' },
+  { id: 'projects', svg: 'assets/PencilRuler.svg' },
+  { id: 'contact', svg: 'assets/Envelope.svg' },
 ];
 
 // DOM elements
@@ -31,10 +27,16 @@ export const initTabs = () => {
 };
 
 // Update panel content and active states
-export const updatePanel = (tabName) => {
+export const updatePanel = async (tabName) => {
   activeTab = tabName;
-  const tabData = TAB_CONTENT.find((tab) => tab.id === tabName);
-  panel.textContent = tabData?.content ?? 'Unknown tab';
+  // Find the template by id
+  const template = document.getElementById(`tab-${tabName}`);
+  if (template) {
+    panel.innerHTML = '';
+    panel.appendChild(template.content.cloneNode(true));
+  } else {
+    panel.textContent = 'Unknown tab';
+  }
 
   tabs.forEach((tab) => {
     tab.classList.toggle('active', tab.dataset.tab === activeTab);

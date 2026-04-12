@@ -27,7 +27,7 @@
       </section>
       <!-- Advertisement Carousel -->
       <section class="advertisements">
-        <main class="advertisement">
+        <article class="advertisement">
           <header class="ad-header">
             <div class="ad-svg"></div>
             <h2 class="ad-title"></h2>
@@ -35,14 +35,22 @@
           </header>
           <p class="ad-description"></p>
           <button class="ad-cta" type="button"></button>
-        </main>
+        </article>
         <footer class="ads-footer">
-          <button class="ads-nav prev" type="button"></button>
-          <button class="ads-nav next" type="button"></button>
+          <button
+            class="ads-nav prev"
+            type="button"
+            aria-label="previous ad"
+          ></button>
+          <button
+            class="ads-nav next"
+            type="button"
+            aria-label="next ad"
+          ></button>
         </footer>
       </section>
-      <!-- Quick Links -->
-      <section class="quick-links">
+      <!-- External Links -->
+      <nav class="external-links" aria-label="external links">
         <ul class="links">
           <li class="link">
             <a
@@ -64,23 +72,95 @@
             <a href="#" id="resume-link">Resume </a>
           </li>
         </ul>
-      </section>
+      </nav>
     </aside>
     <!-- Main Content -->
-    <div class="main-wrapper">
+    <main class="main-wrapper">
       <header class="header">Something interactive</header>
-      <main class="main">
-        <div class="tabs">
+      <section class="main">
+        <nav class="tabs" aria-label="main tabs">
           <button class="tab" data-tab="home" type="button">Home</button>
           <button class="tab" data-tab="about" type="button">About</button>
           <button class="tab" data-tab="projects" type="button">
             Projects
           </button>
           <button class="tab" data-tab="contact" type="button">Contact</button>
-        </div>
+        </nav>
         <div class="tab-panel"></div>
-      </main>
-    </div>
+        <!-- Tab templates for each tab -->
+        <!-- HOME TEMPLATE -->
+        <template id="tab-home">
+          <div class="tab-content home-content">
+            <h2>Welcome to Web Witch</h2>
+            <p>Your interactive web development portfolio</p>
+          </div>
+        </template>
+        <!-- ABOUT TEMPLATE -->
+        <template id="tab-about">
+          <div class="tab-content about-content">
+            <h2>About Me</h2>
+            <div class="about-grid">
+              <div class="about-text">
+                <p>
+                  I'm a passionate web developer who loves creating interactive
+                  experiences...
+                </p>
+                <ul class="skills-list">
+                  <li>JavaScript</li>
+                  <li>React</li>
+                  <li>Node.js</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </template>
+        <!-- PROJECTS TEMPLATE -->
+        <template id="tab-projects">
+          <div class="tab-content projects-content">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+              <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Description of project 1</p>
+                <a href="#" class="project-link">View Project</a>
+              </div>
+              <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Description of project 2</p>
+                <a href="#" class="project-link">View Project</a>
+              </div>
+            </div>
+          </div>
+        </template>
+        <template id="tab-contact">
+          <article id="contact-tab" class="tab-content">
+            <form name="contact" method="POST" data-netlify="true">
+              <p>
+                <label>Your Name: <input type="text" name="name" /></label>
+              </p>
+              <p>
+                <label>Your Email: <input type="email" name="email" /></label>
+              </p>
+              <p>
+                <label>
+                  Your Role:
+                  <select name="role[]" multiple>
+                    <option value="leader">Leader</option>
+                    <option value="follower">Follower</option>
+                  </select>
+                </label>
+              </p>
+              <p>
+                <label>Message: <textarea name="message"></textarea></label>
+              </p>
+              <p>
+                <button type="submit">Send</button>
+              </p>
+            </form>
+          </article>
+        </template>
+      </section>
+    </main>
     <script type="module" src="script.js"></script>
   </body>
 </html>
