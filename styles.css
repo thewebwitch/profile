@@ -475,10 +475,10 @@ body {
 /* ~~~~~~~~~~~~~~~~~~~ Worm ~~~~~~~~~~~~~~~~~~~ */
 .worm-field {
   position: absolute;
-  top: 100px;
-  left: 100px;
-  /* width: 100vw; */
-  /* height: 100vh; */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   border-radius: 50%;
   pointer-events: none;
   overflow: hidden;
@@ -489,22 +489,23 @@ body {
   border-radius: 50%;
   filter: drop-shadow(-8px -10px 46px #0000005f);
   backdrop-filter: blur(2px) url(#displacementFilter);
-  animation: pulseFade 5s ease-in-out infinite;
+  animation: floatAround 6s ease-in-out infinite;
 }
 
-@keyframes pulseFade {
+@keyframes floatAround {
   0% {
-    transform: scale(0.5);
-    opacity: 0;
+    transform: translate(0, 0);
   }
-
+  25% {
+    transform: translate(40vw, -20vh);
+  }
   50% {
-    transform: scale(1.2);
-    opacity: 1;
+    transform: translate(60vw, 30vh);
   }
-
+  75% {
+    transform: translate(20vw, 50vh);
+  }
   100% {
-    transform: scale(0.5);
-    opacity: 0;
+    transform: translate(0, 0);
   }
 }
