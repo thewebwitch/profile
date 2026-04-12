@@ -72,16 +72,6 @@ body {
   background-color: white;
 }
 
-.section-title {
-  font-size: 1rem;
-  font-weight: 600;
-  font-style: normal;
-  letter-spacing: 0;
-  margin: 0;
-  padding: 8px 16px;
-  text-align: center;
-}
-
 .theme-toggle {
   display: flex;
   justify-content: space-between;
@@ -98,9 +88,65 @@ body {
   text-transform: uppercase;
 }
 
-.fake-ads {
+/* ~~~~~~~~~~~~~~~~~~~ Advertisements Styles ~~~~~~~~~~~~~~~~~~~ */
+
+.advertisements {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   background-color: white;
+  padding: 1rem;
+}
+
+.advertisement {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ad-title {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.ad-description {
+  flex-grow: 1;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.ad-cta {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.ads-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ads-nav {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .quick-links {
