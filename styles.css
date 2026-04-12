@@ -108,6 +108,17 @@ body {
   text-transform: uppercase;
 }
 
+.theme-toggle::before,
+.theme-toggle::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-default);
+  mask-image: url('assets/SparklesLeft.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~ Advertisements Styles ~~~~~~~~~~~~~~~~~~~ */
 
 .advertisements {
