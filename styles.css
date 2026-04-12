@@ -72,6 +72,15 @@ body {
   background-color: white;
 }
 
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  margin: 0;
+  text-align: center;
+}
+
 .theme-toggle {
   display: flex;
   justify-content: space-between;
@@ -83,7 +92,7 @@ body {
   font-weight: 600;
   font-style: normal;
   letter-spacing: 0;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   width: 100%;
   text-transform: uppercase;
 }
@@ -106,18 +115,27 @@ body {
   gap: 0.5rem;
 }
 
+.ad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .ad-title {
   font-size: 1rem;
   font-weight: 600;
   font-style: normal;
   letter-spacing: 0;
   margin: 0;
-  padding: 8px 16px;
   text-align: center;
 }
 
 .ad-description {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
   font-weight: 400;
   font-style: normal;
@@ -132,7 +150,7 @@ body {
   font-style: normal;
   letter-spacing: 0;
   margin: 0;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   text-align: center;
 }
 
