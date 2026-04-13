@@ -73,95 +73,117 @@
     <!-- Main Content -->
     <main class="main-wrapper">
       <header class="interactive-header"></header>
-      <section class="main">
-        <nav class="tabs" aria-label="main tabs">
-          <button class="tab" data-tab="home" type="button">Home</button>
-          <button class="tab" data-tab="about" type="button">About</button>
-          <button class="tab" data-tab="projects" type="button">
-            Projects
-          </button>
-          <button class="tab" data-tab="contact" type="button">Contact</button>
-        </nav>
-        <div class="tab-panel"></div>
-        <!-- Tab templates for each tab -->
-        <!-- HOME TEMPLATE -->
-        <template id="tab-home">
-          <div class="tab-content home-content">
-            <div class="avatar-container">
-              <picture>
-                <source srcset="assets/myAvatar.webp" type="image/webp" />
-                <img src="assets/myAvatar.png" alt="Avatar" class="avatar" />
-              </picture>
-            </div>
-            <div class="home-text">
-              <h2>Welcome to Web Witch</h2>
-              <p>Your interactive web development portfolio</p>
+      <div class="tabs-container">
+        <ul class="tabs" aria-labelledby="tabs-title">
+          <li>
+            <a class="tab-button" id="tab-1" href="#home"
+              ><span data-icon="home"></span>Home</a
+            >
+          </li>
+          <li>
+            <a class="tab-button" id="tab-2" href="#about"
+              ><span data-icon="user"></span>About</a
+            >
+          </li>
+          <li>
+            <a class="tab-button" id="tab-3" href="#projects"
+              ><span data-icon="pencilRuler"></span>Projects</a
+            >
+          </li>
+          <li>
+            <a class="tab-button" id="tab-4" href="#contact"
+              ><span data-icon="envelope"></span>Contact</a
+            >
+          </li>
+        </ul>
+        <div class="tabs-panels">
+          <!-- HOME-->
+          <div id="home" aria-labelledby="tab-1">
+            <div class="tab-content home-content">
+              <div class="avatar-container">
+                <picture>
+                  <source srcset="assets/myAvatar.webp" type="image/webp" />
+                  <img
+                    src="assets/myAvatar.png"
+                    alt="Avatar"
+                    class="avatar"
+                    fetchpriority="high"
+                  />
+                </picture>
+              </div>
+              <div class="home-text">
+                <h2>Welcome to Web Witch</h2>
+                <p>Your interactive web development portfolio</p>
+              </div>
             </div>
           </div>
-        </template>
-        <!-- ABOUT TEMPLATE -->
-        <template id="tab-about">
-          <div class="tab-content about-content">
-            <h2>About Me</h2>
-            <div class="about-grid">
-              <div class="about-text">
+
+          <!-- ABOUT -->
+          <div id="about" aria-labelledby="tab-2">
+            <div class="tab-content about-content">
+              <h2>About Me</h2>
+              <div class="about-grid">
+                <div class="about-text">
+                  <p>
+                    I'm a passionate web developer who loves creating
+                    interactive experiences...
+                  </p>
+                  <ul class="skills-list">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECTS -->
+          <div id="projects" aria-labelledby="tab-3">
+            <div class="tab-content projects-content">
+              <h2>My Projects</h2>
+              <div class="projects-grid">
+                <div class="project-card">
+                  <h3>Project 1</h3>
+                  <p>Description of project 1</p>
+                  <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                  <h3>Project 2</h3>
+                  <p>Description of project 2</p>
+                  <a href="#" class="project-link">View Project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+          <div id="contact" aria-labelledby="tab-4">
+            <div class="tab-content contact-content">
+              <form name="contact" method="POST" data-netlify="true">
                 <p>
-                  I'm a passionate web developer who loves creating interactive
-                  experiences...
+                  <label class="contact-form-label"
+                    >Your Name: <input type="text" name="name"
+                  /></label>
                 </p>
-                <ul class="skills-list">
-                  <li>JavaScript</li>
-                  <li>React</li>
-                  <li>Node.js</li>
-                </ul>
-              </div>
+                <p>
+                  <label class="contact-form-label"
+                    >Your Email: <input type="email" name="email"
+                  /></label>
+                </p>
+                <p>
+                  <label class="contact-form-label"
+                    >Message: <textarea name="message"></textarea>
+                  </label>
+                </p>
+                <p>
+                  <button type="submit">Send</button>
+                </p>
+              </form>
             </div>
           </div>
-        </template>
-        <!-- PROJECTS TEMPLATE -->
-        <template id="tab-projects">
-          <div class="tab-content projects-content">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-              <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Description of project 1</p>
-                <a href="#" class="project-link">View Project</a>
-              </div>
-              <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Description of project 2</p>
-                <a href="#" class="project-link">View Project</a>
-              </div>
-            </div>
-          </div>
-        </template>
-        <!-- CONTACT TEMPLATE -->
-        <template id="tab-contact">
-          <article id="contact-tab" class="tab-content">
-            <form name="contact" method="POST" data-netlify="true">
-              <p>
-                <label class="contact-form-label"
-                  >Your Name: <input type="text" name="name"
-                /></label>
-              </p>
-              <p>
-                <label class="contact-form-label"
-                  >Your Email: <input type="email" name="email"
-                /></label>
-              </p>
-              <p>
-                <label class="contact-form-label"
-                  >Message: <textarea name="message"></textarea>
-                </label>
-              </p>
-              <p>
-                <button type="submit">Send</button>
-              </p>
-            </form>
-          </article>
-        </template>
-      </section>
+        </div>
+      </div>
     </main>
     <!-- <div class="worm-field">
       <div class="worm"></div>

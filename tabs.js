@@ -1,46 +1,46 @@
-// Tab content data
-const TAB_CONTENT = [
-  { id: 'home', svg: 'assets/Home.svg' },
-  { id: 'about', svg: 'assets/User.svg' },
-  { id: 'projects', svg: 'assets/PencilRuler.svg' },
-  { id: 'contact', svg: 'assets/Envelope.svg' },
-];
+// https://www.youtube.com/watch?v=fI9VM5zzpu8
+const tabsContainer = document.querySelector('.tabs-container');
+const tabsList = document.querySelector('.tabs');
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabPanels = document.querySelectorAll('.tabs-panels > div');
 
-// DOM elements
-const tabs = document.querySelectorAll('.tab');
-const panel = document.querySelector('.tab-panel');
+tabsList.setAttribute('role', 'tablist');
 
-// State
-let activeTab = 'home';
+// Stripped away the semantics of li
+tabsList.querySelectorAll('li').forEach((tab) => {
+  tab.setAttribute('role', 'presentation');
+});
 
-// Initialize event listeners
-export const initTabs = () => {
-  tabs.forEach((tab) => {
-    const tabData = TAB_CONTENT.find((item) => item.id === tab.dataset.tab);
-    if (tabData) {
-      tab.style.setProperty('--tab-mask-image', `url('${tabData.svg}')`);
-    }
-    tab.addEventListener('click', () => {
-      updatePanel(tab.dataset.tab);
-    });
-  });
-};
-
-// Update panel content and active states
-export const updatePanel = async (tabName) => {
-  activeTab = tabName;
-  // Find the template by id
-  const template = document.getElementById(`tab-${tabName}`);
-  if (template) {
-    panel.innerHTML = '';
-    panel.appendChild(template.content.cloneNode(true));
+tabButtons.forEach((tab, index) => {
+  tab.setAttribute('role', 'tab');
+  if (index === 0) {
+    tab.setAttribute('aria-selected', 'true');
   } else {
-    panel.textContent = 'Unknown tab';
+    tab.setAttribute('tabindex', '-1');
+    tabPanels[index].setAttribute('hidden', '');
   }
+});
 
-  tabs.forEach((tab) => {
-    tab.classList.toggle('active', tab.dataset.tab === activeTab);
+tabPanels.forEach((panel) => {
+  panel.setAttribute('role', 'tabpanel');
+  panel.setAttribute('tabindex', '0');
+});
+
+tabsContainer.addEventListener('click', (event) => {
+  const clickedTab = event.target.closest('.tab-button');
+  if (!clickedTab) return;
+  event.preventDefault();
+
+  switchTab(clickedTab);
+});
+
+function switchTab(clickedTab) {
+  const activePanelId = clickedTab.getAttribute('href');
+  const activePanel = tabsContainer.querySelector(activePanelId);
+
+  tabPanels.forEach((panel) => {
+    panel.setAttribute('hidden', true);
   });
-};
 
-updatePanel('home');
+  activePanel.removeAttribute('hidden');
+}

@@ -374,7 +374,7 @@ body {
 }
 
 /* ~~~~~~~~~~~~~~~~~~~ Panel Styles ~~~~~~~~~~~~~~~~~~~ */
-.main {
+.tabs-container {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -385,9 +385,11 @@ body {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  list-style: none;
+  margin: 0 1rem -1px 1rem; /* Negative bottom margin to fix gap between tabs and panels */
 }
 
-.tab {
+.tab-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -397,33 +399,33 @@ body {
   border-radius: 0.5rem 0.5rem 0 0;
   color: var(--text-disabled);
   cursor: pointer;
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
   padding: 0.5rem 1rem;
   text-align: center;
+  text-decoration: none;
 }
 
-.tab::before {
-  content: '';
+.icon {
   display: inline-block;
-  width: 1.5rem; /* 24px */
-  height: 1.5rem; /* 24px */
-  background-color: var(--text-disabled);
-  mask-image: var(--tab-mask-image);
-  -webkit-mask-image: var(--tab-mask-image);
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-color);
   mask-size: contain;
   mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
 }
 
-.tab.active::before {
-  background-color: var(--text-default);
-}
-
-.tab.active {
-  background: var(--surface-primary);
+[aria-selected='true'] {
+  background-color: var(--surface-primary);
   color: var(--text-default);
 }
 
-.tab-panel {
+/* .tab.active::before {
+  background-color: var(--text-default);
+} */
+
+.tabs-panels {
   flex-grow: 1;
   display: flex;
   background-color: var(--surface-primary);
