@@ -38,11 +38,17 @@ function switchTab(clickedTab) {
   const activePanelId = clickedTab.getAttribute('href');
   const activePanel = tabsContainer.querySelector(activePanelId);
 
+  tabButtons.forEach((tab) => {
+    tab.setAttribute('aria-selected', 'false');
+    tab.setAttribute('tabindex', '-1');
+  });
+
   tabPanels.forEach((panel) => {
     panel.setAttribute('hidden', true);
   });
 
   activePanel.removeAttribute('hidden');
+  clickedTab.setAttribute('aria-selected', 'true');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
