@@ -130,8 +130,8 @@ body {
   width: 1.25rem; /* 20px */
   height: 1.25rem; /* 20px */
   background-color: var(--text-default);
-  mask-image: url('assets/SparklesLeft.svg');
-  -webkit-mask-image: url('assets/SparklesLeft.svg');
+  mask-image: url('assets/sparklesLeft.svg');
+  -webkit-mask-image: url('assets/sparklesLeft.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
 }
@@ -251,7 +251,7 @@ body {
   height: 1.25rem; /* 20px */
   background-color: var(--text-default);
   mask-size: contain;
-  mask-image: url('assets/ArrowAltCircleLeft.svg');
+  mask-image: url('assets/arrowAltCircleLeft.svg');
   mask-repeat: no-repeat;
 }
 
@@ -260,7 +260,7 @@ body {
   height: 1.25rem; /* 20px */
   background-color: var(--text-default);
   mask-size: contain;
-  mask-image: url('assets/ArrowAltCircleRight.svg');
+  mask-image: url('assets/arrowAltCircleRight.svg');
   mask-repeat: no-repeat;
 }
 
@@ -307,18 +307,18 @@ body {
 }
 
 #github-link::before {
-  mask-image: url('assets/Github.svg');
-  -webkit-mask-image: url('assets/Github.svg');
+  mask-image: url('assets/github.svg');
+  -webkit-mask-image: url('assets/github.svg');
 }
 
 #linkedin-link::before {
-  mask-image: url('assets/LinkedIn.svg');
-  -webkit-mask-image: url('assets/LinkedIn.svg');
+  mask-image: url('assets/linkedin.svg');
+  -webkit-mask-image: url('assets/linkedin.svg');
 }
 
 #resume-link::before {
-  mask-image: url('assets/DownloadAlt.svg');
-  -webkit-mask-image: url('assets/DownloadAlt.svg');
+  mask-image: url('assets/downloadAlt.svg');
+  -webkit-mask-image: url('assets/downloadAlt.svg');
 }
 
 #resume-link::after,
@@ -330,8 +330,8 @@ body {
   margin-left: auto;
   width: 1.125rem; /* 20px */
   height: 1.125rem; /* 20px */
-  mask-image: url('assets/ExternalLink.svg');
-  -webkit-mask-image: url('assets/ExternalLink.svg');
+  mask-image: url('assets/externalLink.svg');
+  -webkit-mask-image: url('assets/externalLink.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
 }
@@ -405,11 +405,11 @@ body {
   text-decoration: none;
 }
 
-.icon {
+.tab-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-color: var(--text-color);
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: currentColor;
   mask-size: contain;
   mask-repeat: no-repeat;
   -webkit-mask-size: contain;
@@ -420,10 +420,6 @@ body {
   background-color: var(--surface-primary);
   color: var(--text-default);
 }
-
-/* .tab.active::before {
-  background-color: var(--text-default);
-} */
 
 .tabs-panels {
   flex-grow: 1;
