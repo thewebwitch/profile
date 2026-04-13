@@ -10,6 +10,7 @@ const LIGHT_ADS_CONTENT = [
     cta: 'REVEAL YOUR FUTURE',
     svg: 'assets/crystalBall.svg',
     svgPosition: 'sides',
+    onClick: (event) => console.log('Ad clicked!', event),
   },
   {
     title: "You've Got Mail!",
@@ -17,6 +18,7 @@ const LIGHT_ADS_CONTENT = [
     cta: 'View Inbox',
     svg: 'assets/envelope.svg',
     svgPosition: 'top',
+    onClick: (event) => console.log('Ad clicked!', event),
   },
   {
     title: 'PLAY FOR FREE',
@@ -24,6 +26,7 @@ const LIGHT_ADS_CONTENT = [
     cta: 'START GAME',
     svg: 'assets/gaming.svg',
     svgPosition: 'top',
+    onClick: (event) => console.log('Ad clicked!', event),
   },
 ];
 
@@ -34,6 +37,7 @@ const DARK_ADS_CONTENT = [
     cta: 'TRY TODAY',
     svg: 'assets/cow.svg',
     svgPosition: 'top',
+    onClick: (event) => console.log('Ad clicked!', event),
   },
   {
     title: 'SYSTEM NOTICE',
@@ -41,13 +45,22 @@ const DARK_ADS_CONTENT = [
     cta: 'Read More',
     svg: 'assets/exclamationTriangle.svg',
     svgPosition: 'sides',
+    onClick: (event) => console.log('Ad clicked!', event),
   },
   {
     title: "YOU'RE BEING RECORDED",
     description: '',
     cta: 'ABORT',
+    onClick: (event) => console.log('Ad clicked!', event),
   },
 ];
+
+function createAdContent() {
+  const adContainer = document.querySelector('.advertisement');
+  const adTitle = adContainer.querySelector('.ad-title');
+  const adDescription = adContainer.querySelector('.ad-description');
+  const adCta = adContainer.querySelector('.ad-cta');
+}
 
 const getAdsForTheme = (theme) =>
   theme === 'light' ? LIGHT_ADS_CONTENT : DARK_ADS_CONTENT;
