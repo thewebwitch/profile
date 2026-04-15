@@ -136,18 +136,6 @@ body {
   text-align: center;
 } */
 
-.brand span::before {
-  content: '';
-  display: block;
-  width: 10rem;
-  height: 2.25rem;
-  background-color: var(--text-inverse);
-  mask-image: url('../assets/webWitch.svg');
-  -webkit-mask-image: url('../assets/webWitch.svg');
-  mask-size: contain;
-  mask-repeat: no-repeat;
-}
-
 .new-features {
   display: flex;
   flex-direction: column;
