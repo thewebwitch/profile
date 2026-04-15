@@ -4,20 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Witch</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body data-theme="light">
     <!-- Sidebar -->
     <aside class="sidebar">
       <!-- Brand -->
       <section class="brand">
-        <h1 class="logo">Web Witch</h1>
+        <!-- <img src="/src/assets/webWitch.svg" alt="Web Witch Logo" /> -->
         <span>thewebwitchproject.com</span>
       </section>
       <!-- Theme Toggle -->
@@ -31,7 +24,7 @@
           <h2 class="ad-title"></h2>
           <p class="ad-description"></p>
           <button class="ad-cta" type="button"></button>
-        </articxle>
+        </article>
         <footer class="ads-footer">
           <button
             class="ads-nav prev"
@@ -102,9 +95,12 @@
             <div class="tab-content home-content">
               <div class="avatar-container">
                 <picture>
-                  <source srcset="./src/assets/myAvatar.webp" type="image/webp" />
+                  <source
+                    srcset="/src/assets/myAvatar.webp"
+                    type="image/webp"
+                  />
                   <img
-                    src="./src/assets/myAvatar.png"
+                    src="/myAvatar.png"
                     alt="Avatar"
                     class="avatar"
                     fetchpriority="high"
@@ -242,6 +238,6 @@
         </filter>
       </svg>
     </div> -->
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

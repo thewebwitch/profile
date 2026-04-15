@@ -1,3 +1,43 @@
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotestk';
+  src: url('../assets/fonts/SpaceGrotesk-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,6 +46,7 @@
 
 :root {
   --text-default: black;
+  --text-inverse: white;
   --text-disabled: #a0a0a0;
   --surface-primary: white;
   --surface-subtle: #f9ebf8;
@@ -33,6 +74,7 @@
 
 [data-theme='dark'] {
   --text-default: #2be02b;
+  --text-inverse: #1e1e1e;
   --text-disabled: #323232;
 
   --surface-primary: #1e1e1e;
@@ -85,13 +127,25 @@ body {
   height: var(--header-height);
 }
 
-.logo {
+/* .logo {
   font-family: 'Bungee Shade', sans-serif;
   font-weight: 400;
   font-size: 3rem;
   font-style: normal;
   line-height: 1;
   text-align: center;
+} */
+
+.brand span::before {
+  content: '';
+  display: block;
+  width: 10rem;
+  height: 2.25rem;
+  background-color: var(--text-inverse);
+  mask-image: url('../assets/webWitch.svg');
+  -webkit-mask-image: url('../assets/webWitch.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
 }
 
 .new-features {
@@ -123,7 +177,7 @@ body {
   border-radius: 0.5rem;
   color: var(--text-default);
   cursor: pointer;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   font-style: normal;
@@ -144,8 +198,8 @@ body {
   width: 1.25rem; /* 20px */
   height: 1.25rem; /* 20px */
   background-color: var(--text-default);
-  mask-image: url('assets/sparklesLeft.svg');
-  -webkit-mask-image: url('assets/sparklesLeft.svg');
+  mask-image: url('../assets/sparklesLeft.svg');
+  -webkit-mask-image: url('../assets/sparklesLeft.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
 }
@@ -279,7 +333,7 @@ body {
   height: 1.25rem; /* 20px */
   background-color: var(--text-default);
   mask-size: contain;
-  mask-image: url('assets/arrowAltCircleLeft.svg');
+  mask-image: url('../assets/arrowAltCircleLeft.svg');
   mask-repeat: no-repeat;
 }
 
@@ -288,7 +342,7 @@ body {
   height: 1.25rem; /* 20px */
   background-color: var(--text-default);
   mask-size: contain;
-  mask-image: url('assets/arrowAltCircleRight.svg');
+  mask-image: url('../assets/arrowAltCircleRight.svg');
   mask-repeat: no-repeat;
 }
 
@@ -337,18 +391,18 @@ body {
 }
 
 #github-link::before {
-  mask-image: url('assets/github.svg');
-  -webkit-mask-image: url('assets/github.svg');
+  mask-image: url('../assets/github.svg');
+  -webkit-mask-image: url('../assets/github.svg');
 }
 
 #linkedin-link::before {
-  mask-image: url('assets/linkedin.svg');
-  -webkit-mask-image: url('assets/linkedin.svg');
+  mask-image: url('../assets/linkedin.svg');
+  -webkit-mask-image: url('../assets/linkedin.svg');
 }
 
 #resume-link::before {
-  mask-image: url('assets/downloadAlt.svg');
-  -webkit-mask-image: url('assets/downloadAlt.svg');
+  mask-image: url('../assets/downloadAlt.svg');
+  -webkit-mask-image: url('../assets/downloadAlt.svg');
 }
 
 #resume-link::after,
@@ -360,8 +414,8 @@ body {
   margin-left: auto;
   width: 1.125rem; /* 20px */
   height: 1.125rem; /* 20px */
-  mask-image: url('assets/externalLink.svg');
-  -webkit-mask-image: url('assets/externalLink.svg');
+  mask-image: url('../assets/externalLink.svg');
+  -webkit-mask-image: url('../assets/externalLink.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
 }
