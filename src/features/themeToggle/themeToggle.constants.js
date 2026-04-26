@@ -1,0 +1,2 @@
+export const LIGHT_MODE_TEXT = 'TRY IN DARK MODE';
+export const DARK_MODE_TEXT = 'RETURN TO LIGHT';

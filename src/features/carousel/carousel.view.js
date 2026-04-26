@@ -16,18 +16,9 @@ export function applyCarouselStyles(root, controls, itemElements) {
 
 export function renderAd(itemElements, ad) {
   const { titleElement, descriptionElement, ctaButton } = itemElements;
-  const { title, description, cta, svg, svgPosition } = ad;
+  const { title, description, cta } = ad;
 
   titleElement.textContent = title;
   descriptionElement.textContent = description;
   ctaButton.textContent = cta;
-
-  // conditional styling
-  titleElement.classList.toggle(styles.sideSvg, svgPosition === 'sides');
-  titleElement.classList.toggle(styles.topSvg, svgPosition === 'top');
-
-  // dynamic mask stays inline
-  if (svg) {
-    titleElement.style.setProperty('--mask-image', `url(${svg})`);
-  }
 }

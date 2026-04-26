@@ -1,4 +1,3 @@
-/* ~~~~~~~~~~~~~~~~~~~ Advertisements Styles ~~~~~~~~~~~~~~~~~~~ */
 .adTitle {
   display: flex;
   justify-content: center;
@@ -11,34 +10,6 @@
   margin: 0;
   text-align: center;
   width: 100%;
-}
-
-.adTitle.topSvg {
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.adTitle.sideSvg {
-  justify-content: space-between;
-}
-
-.adTitle.topSvg::before,
-.adTitle.sideSvg::after,
-.adTitle.sideSvg::before {
-  content: '';
-  display: inline-block;
-  width: 1.25rem; /* 20px */
-  height: 1.25rem; /* 20px */
-  background-color: var(--text-default);
-  mask-image: var(--mask-image);
-  -webkit-mask-image: var(--mask-image);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-}
-
-.adTitle.topSvg::before {
-  width: 2.25rem; /* 36px */
-  height: 2.25rem; /* 36px */
 }
 
 .adDescription {
