@@ -1,7 +1,7 @@
+import { themeStore } from '@/stores';
 import { getAdsForTheme } from './carousel.utils.js';
 import { AD_CHANGE_INTERVAL } from './carousel.constants.js';
 import { applyCarouselStyles, renderAd } from './carousel.view.js';
-import { getCurrentTheme } from '../../scripts/utils.js';
 
 export const initCarousel = () => {
   // ROOT
@@ -25,7 +25,7 @@ export const initCarousel = () => {
   applyCarouselStyles(root, controls, itemElements);
 
   // STATE
-  let currentTheme = getCurrentTheme();
+  let currentTheme = themeStore.get();
   let ads = getAdsForTheme(currentTheme);
   let currentIndex = 0;
   let intervalId = null;
@@ -48,12 +48,11 @@ export const initCarousel = () => {
   };
 
   // THEME
-  const handleThemeChange = () => {
-    const newTheme = getCurrentTheme();
+  const handleThemeChange = (newTheme) => {
     if (newTheme === currentTheme) return;
 
     currentTheme = newTheme;
-    ads = getAdsForTheme(currentTheme);
+    ads = getAdsForTheme(newTheme);
     currentIndex = currentIndex % ads.length;
     update();
   };
@@ -89,13 +88,17 @@ export const initCarousel = () => {
   root.addEventListener('mouseenter', stop);
   root.addEventListener('mouseleave', start);
 
-  const observer = new MutationObserver(handleThemeChange);
-  observer.observe(document.body, {
-    attributes: true,
-    attributeFilter: ['data-theme'],
-  });
+  const unsubscribe = themeStore.subscribe(handleThemeChange);
 
   // INIT
   update();
   start();
+
+  // CLEANUP
+  return () => {
+    controls.prevButton.removeEventListener('click', prev);
+    controls.nextButton.removeEventListener('click', next);
+    unsubscribe();
+    stop();
+  };
 };

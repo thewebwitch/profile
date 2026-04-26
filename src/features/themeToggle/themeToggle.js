@@ -1,25 +1,22 @@
-import { getTheme, saveTheme } from '../../scripts/utils.js';
-import { applyTheme, applyThemeToggleStyles } from './themeToggle.view.js';
+import { themeStore } from '@/stores';
+import { applyThemeToggleStyles } from './themeToggle.view.js';
 import { DARK_MODE_TEXT, LIGHT_MODE_TEXT } from './themeToggle.constants.js';
 
-export const initTheme = () => {
+export const initThemeToggle = () => {
   const toggleButton = document.querySelector('[data-theme-toggle]');
-  let theme = getTheme();
-
   applyThemeToggleStyles(toggleButton);
 
-  const update = () => {
-    applyTheme(theme);
+  const update = (theme) => {
     toggleButton.textContent =
       theme === 'light' ? LIGHT_MODE_TEXT : DARK_MODE_TEXT;
-    saveTheme(theme);
   };
 
   const toggle = () => {
-    theme = theme === 'light' ? 'dark' : 'light';
-    update();
+    const next = themeStore.get() === 'light' ? 'dark' : 'light';
+    themeStore.set(next);
   };
 
   toggleButton.addEventListener('click', toggle);
-  update();
+  const unsubscribe = themeStore.subscribe(update);
+  update(themeStore.get());
 };
