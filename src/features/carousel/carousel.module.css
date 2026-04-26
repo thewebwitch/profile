@@ -1,0 +1,108 @@
+/* ~~~~~~~~~~~~~~~~~~~ Advertisements Styles ~~~~~~~~~~~~~~~~~~~ */
+.adTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-default);
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.adTitle.topSvg {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.adTitle.sideSvg {
+  justify-content: space-between;
+}
+
+.adTitle.topSvg::before,
+.adTitle.sideSvg::after,
+.adTitle.sideSvg::before {
+  content: '';
+  display: inline-block;
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  background-color: var(--text-default);
+  mask-image: var(--mask-image);
+  -webkit-mask-image: var(--mask-image);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+.adTitle.topSvg::before {
+  width: 2.25rem; /* 36px */
+  height: 2.25rem; /* 36px */
+}
+
+.adDescription {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.adCta {
+  background-color: transparent;
+  border: 2px solid var(--text-default);
+  border-radius: 0.5rem;
+  box-shadow: -0.25rem 0.25rem var(--text-default);
+  color: var(--text-default);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  margin: 0 0 0.25rem 0.25rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.adCta.pressed {
+  box-shadow: none;
+  transform: translate(-0.25rem, 0.25rem);
+}
+
+.adsFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adsNav {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.adsNav.prev {
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  background-color: var(--text-default);
+  mask-size: contain;
+  mask-image: url('../assets/arrowAltCircleLeft.svg');
+  mask-repeat: no-repeat;
+}
+
+.adsNav.next {
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  background-color: var(--text-default);
+  mask-size: contain;
+  mask-image: url('../assets/arrowAltCircleRight.svg');
+  mask-repeat: no-repeat;
+}

@@ -1,4 +1,5 @@
-import { initCarousel } from './scripts/carousel.js';
+import { initCarousel } from './features/carousel';
+
 import { initTheme } from './scripts/themeToggle.js';
 import './scripts/interactiveHeader.js';
 import './scripts/tabs.js';
