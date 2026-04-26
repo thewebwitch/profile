@@ -1,44 +1,25 @@
 // https://www.youtube.com/watch?v=fI9VM5zzpu8
+import { applyTabsStyles } from './tabs.view';
 
 function createTabs(container) {
-  const tabsList = container.querySelector('[data-tabs-list]');
-  const tabButtons = container.querySelectorAll('[data-tab]');
-  const tabPanels = container.querySelectorAll('[data-tabs-panels] > div');
+  const tabElements = {
+    tabsList: container.querySelector('[data-tabs-list]'),
+    tabButtons: container.querySelectorAll('[data-tab]'),
+    tabPanels: container.querySelectorAll('[data-tabs-panels] > div'),
+  };
 
-  function initA11y() {
-    tabsList.setAttribute('role', 'tablist');
-
-    // Stripped away the semantics of li
-    tabsList.querySelectorAll('li').forEach((tab) => {
-      tab.setAttribute('role', 'presentation');
-    });
-
-    tabButtons.forEach((tab, index) => {
-      tab.setAttribute('role', 'tab');
-      if (index === 0) {
-        tab.setAttribute('aria-selected', 'true');
-      } else {
-        tab.setAttribute('tabindex', '-1');
-        tabPanels[index].setAttribute('hidden', '');
-      }
-    });
-
-    tabPanels.forEach((panel) => {
-      panel.setAttribute('role', 'tabpanel');
-      panel.setAttribute('tabindex', '0');
-    });
-  }
+  applyTabsStyles(tabElements);
 
   function switchTab(clickedTab) {
     const activePanelId = clickedTab.getAttribute('href');
     const activePanel = container.querySelector(activePanelId);
 
-    tabButtons.forEach((tab) => {
+    tabElements.tabButtons.forEach((tab) => {
       tab.setAttribute('aria-selected', 'false');
       tab.setAttribute('tabindex', '-1');
     });
 
-    tabPanels.forEach((panel) => {
+    tabElements.tabPanels.forEach((panel) => {
       panel.setAttribute('hidden', true);
     });
     activePanel.removeAttribute('hidden');
@@ -49,7 +30,7 @@ function createTabs(container) {
   }
 
   function move(direction) {
-    const tabs = [...tabButtons];
+    const tabs = [...tabElements.tabButtons];
     const currentTab = document.activeElement;
     const currentIndex = tabs.indexOf(currentTab);
 
@@ -63,9 +44,33 @@ function createTabs(container) {
     switchTab(tabs[newIndex]);
   }
 
+  function initA11y() {
+    tabElements.tabsList.setAttribute('role', 'tablist');
+
+    // Stripped away the semantics of li
+    tabElements.tabsList.querySelectorAll('li').forEach((tab) => {
+      tab.setAttribute('role', 'presentation');
+    });
+
+    tabElements.tabButtons.forEach((tab, index) => {
+      tab.setAttribute('role', 'tab');
+      if (index === 0) {
+        tab.setAttribute('aria-selected', 'true');
+      } else {
+        tab.setAttribute('tabindex', '-1');
+        tabElements.tabPanels[index].setAttribute('hidden', '');
+      }
+    });
+
+    tabElements.tabPanels.forEach((panel) => {
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('tabindex', '0');
+    });
+  }
+
   function bindEvents() {
     container.addEventListener('click', (event) => {
-      const clickedTab = event.target.closest('.tab-button');
+      const clickedTab = event.target.closest('[data-tab]');
       if (!clickedTab) return;
       event.preventDefault();
 
@@ -82,11 +87,11 @@ function createTabs(container) {
           break;
         case 'Home':
           event.preventDefault();
-          switchTab(tabButtons[0]);
+          switchTab(tabElements.tabButtons[0]);
           break;
         case 'End':
           event.preventDefault();
-          switchTab(tabButtons[tabButtons.length - 1]);
+          switchTab(tabElements.tabButtons[tabElements.tabButtons.length - 1]);
           break;
         default:
           break;
@@ -101,6 +106,3 @@ function createTabs(container) {
 
   init();
 }
-
-const tabsContainer = document.querySelector('.tabs-container');
-createTabs(tabsContainer);

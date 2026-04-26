@@ -1,0 +1,49 @@
+/* ~~~~~~~~~~~~~~~~~~~ Resets ~~~~~~~~~~~~~~~~~~~ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption {
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+header,
+footer,
+main,
+section,
+article {
+  container-type: inline-size;
+}
+
+body {
+  display: flex;
+  background-color: var(--surface-subtle);
+  background-image:
+    linear-gradient(var(--background-border) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--background-border) 0.5px, transparent 0.5px);
+  background-size: 3rem 3rem;
+
+  color: var(--text-default);
+  font-family: 'Space Grotesk', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  min-width: 100vw;
+  min-height: 100vh;
+}

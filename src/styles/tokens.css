@@ -1,0 +1,63 @@
+:root {
+  --text-default: black;
+  --text-inverse: white;
+  --text-disabled: #a0a0a0;
+  --surface-primary: white;
+  --surface-subtle: #f9ebf8;
+  --surface-disabled: #e0e0e0;
+  --surface-purple: #c2a0ff;
+  --surface-pink: #ffaada;
+  --surface-green: #3af0ac;
+  --avatar-background: #a0d1ff;
+  --sidebar-width: 18.75rem; /* 300px */
+  --header-height: 9.375rem; /* 150px */
+  --background-border: #ffaada;
+
+  --fs-300: 1rem;
+  --fs-400: 1.125rem;
+  --fs-500: 1.325rem;
+  --fs-600: 1.625rem;
+  --fs-700: 2rem;
+  --fs-800: 2.325rem;
+  --fs-900: 3rem;
+
+  /* Prevent browser from synthesizing bold/italic if font files don't exist */
+  font-synthesis: none;
+  /* Webkit browsers - smooth font rendering */
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+
+  /* Firefox on macOS - smooth font rendering */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Prevent font color changes on highlight */
+  -webkit-tap-highlight-color: transparent;
+}
+
+[data-theme='dark'] {
+  --text-default: #2be02b;
+  --text-inverse: #1e1e1e;
+  --text-disabled: #323232;
+
+  --surface-primary: rgba(30, 30, 30, 0.8);
+  --surface-subtle: #121212;
+  --surface-disabled: #1c1c1c;
+
+  --surface-purple: rgba(30, 30, 30, 0.8);
+  --surface-pink: rgba(30, 30, 30, 0.8);
+  --surface-green: rgba(30, 30, 30, 0.8);
+  --avatar-background: #2be02b;
+  --background-border: #0d430d;
+}
+
+@media (750px < width) {
+  :root {
+    --fs-300: 1.125rem;
+    --fs-400: 1.25rem;
+    --fs-500: 1.375rem;
+    --fs-600: 2rem;
+    --fs-700: 2.325rem;
+    --fs-800: 2.725rem;
+    --fs-900: 4rem;
+  }
+}

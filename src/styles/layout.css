@@ -1,0 +1,178 @@
+/* ~~~~~~~~~~~~~~~~~~~ Aside Styles ~~~~~~~~~~~~~~~~~~~ */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
+  padding: 1rem 0.5rem 1rem 1rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--surface-purple);
+  border-radius: 0.5rem;
+  height: var(--header-height);
+}
+
+/* .logo {
+  font-family: 'Bungee Shade', sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  font-style: normal;
+  line-height: 1;
+  text-align: center;
+} */
+
+.new-features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--surface-pink);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.new-features-title {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+[data-theme='dark'] [data-theme-toggle] {
+  animation: none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ Carousel ~~~~~~~~~~~~~~~~~~~ */
+[data-carousel] {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--surface-primary);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+[data-carousel-item] {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ External Links Styles ~~~~~~~~~~~~~~~~~~~ */
+
+.external-links {
+  background-color: var(--surface-green);
+  border-radius: 0.5rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  list-style: none;
+  width: 100%;
+}
+
+.link a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-default);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  text-decoration: none;
+}
+
+.external-link-icon {
+  margin-left: auto;
+}
+
+#resume-link::before,
+#linkedin-link::before,
+#github-link::before {
+  content: '';
+  display: inline-block;
+  background-color: var(--text-default);
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+#github-link::before {
+  mask-image: url('../assets/github.svg');
+  -webkit-mask-image: url('../assets/github.svg');
+}
+
+#linkedin-link::before {
+  mask-image: url('../assets/linkedin.svg');
+  -webkit-mask-image: url('../assets/linkedin.svg');
+}
+
+#resume-link::before {
+  mask-image: url('../assets/downloadAlt.svg');
+  -webkit-mask-image: url('../assets/downloadAlt.svg');
+}
+
+#resume-link::after,
+#linkedin-link::after,
+#github-link::after {
+  content: '';
+  display: inline-block;
+  background-color: var(--text-default);
+  margin-left: auto;
+  width: 1.125rem; /* 20px */
+  height: 1.125rem; /* 20px */
+  mask-image: url('../assets/externalLink.svg');
+  -webkit-mask-image: url('../assets/externalLink.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ Main Styles ~~~~~~~~~~~~~~~~~~~ */
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 0.5rem;
+  width: 100%;
+}
+
+.interactive-header {
+  background-color: var(--surface-primary);
+  border-radius: 0.5rem;
+  height: var(--header-height);
+  overflow: hidden;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ Panel Styles ~~~~~~~~~~~~~~~~~~~ */
+[data-tabs] {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-tabs-panels] {
+  /* flex-grow: 1; */
+  display: flex;
+  background-color: var(--surface-primary);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}

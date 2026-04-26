@@ -1,0 +1,9 @@
+/* ~~~~~~~~~~~~~~~~~~~ Contact Tab Styles ~~~~~~~~~~~~~~~~~~~ */
+.contact-form-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  margin-bottom: 0.25rem;
+}
