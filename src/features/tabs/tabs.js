@@ -1,9 +1,9 @@
 // https://www.youtube.com/watch?v=fI9VM5zzpu8
 
 function createTabs(container) {
-  const tabsList = container.querySelector('.tabs');
-  const tabButtons = container.querySelectorAll('.tab-button');
-  const tabPanels = container.querySelectorAll('.tabs-panels > div');
+  const tabsList = container.querySelector('[data-tabs-list]');
+  const tabButtons = container.querySelectorAll('[data-tab]');
+  const tabPanels = container.querySelectorAll('[data-tabs-panels] > div');
 
   function initA11y() {
     tabsList.setAttribute('role', 'tablist');

@@ -1,8 +1,8 @@
 import { initCarousel } from './features/carousel';
+import './features/tabs';
 
 import { initTheme } from './scripts/themeToggle.js';
 import './scripts/interactiveHeader.js';
-import './scripts/tabs.js';
 import './styles/main.css';
 
 // Initialize on page load

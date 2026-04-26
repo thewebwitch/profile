@@ -66,30 +66,31 @@
     <!-- Main Content -->
     <main class="main-wrapper">
       <header class="interactive-header"></header>
-      <div class="tabs-container">
-        <ul class="tabs" aria-labelledby="tabs-title">
+      <!-- Tabs -->
+      <div data-tabs class="tabs-container">
+        <ul data-tabs-list class="tabs" aria-labelledby="tabs-title">
           <li>
-            <a class="tab-button" id="tab-1" href="#home"
+            <a data-tab class="tab-button" id="tab-1" href="#home"
               ><span data-tabicon="home"></span>Home</a
             >
           </li>
           <li>
-            <a class="tab-button" id="tab-2" href="#about"
+            <a data-tab class="tab-button" id="tab-2" href="#about"
               ><span data-tabicon="user"></span>About</a
             >
           </li>
           <li>
-            <a class="tab-button" id="tab-3" href="#projects"
+            <a data-tab class="tab-button" id="tab-3" href="#projects"
               ><span data-tabicon="pencilRuler"></span>Projects</a
             >
           </li>
           <li>
-            <a class="tab-button" id="tab-4" href="#contact"
+            <a data-tab class="tab-button" id="tab-4" href="#contact"
               ><span data-tabicon="envelope"></span>Contact</a
             >
           </li>
         </ul>
-        <div class="tabs-panels">
+        <div data-tabs-panels class="tabs-panels">
           <!-- HOME-->
           <div id="home" aria-labelledby="tab-1">
             <div class="tab-content home-content">
