@@ -1,7 +1,7 @@
 // https://www.youtube.com/watch?v=fI9VM5zzpu8
 import { applyTabsStyles } from './tabs.view';
 
-function createTabs(container) {
+export function createTabs(container) {
   const tabElements = {
     tabsList: container.querySelector('[data-tabs-list]'),
     tabButtons: container.querySelectorAll('[data-tab]'),
